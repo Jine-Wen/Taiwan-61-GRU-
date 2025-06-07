@@ -2,7 +2,8 @@
 
 ## 專案概述
 
-這是我在碩士研究期間所建置的溫度預測系統，利用台灣10個氣象測站61年的歷史溫度資料，透過GRU (Gated Recurrent Unit) 神經網路進行溫度預測。此模型可以根據過去的溫度資料預測未來月份的平均溫度變化。這是我研究過程中因為無聊而做的一個小實驗，但結果還蠻有趣的😂
+這是我在碩士研究期間所建置的溫度預測，參考相關溫度GRU預測的方式( Australia temprature predict (GRU) )，並利用台灣10個氣象測站61年的歷史溫度資料，透過GRU (Gated Recurrent Unit) 神經網路進行溫度預測
+此模型可以根據過去的溫度資料預測未來月份的平均溫度變化。這是我研究過程中因為無聊而做的一個小實驗，但結果還蠻有趣的😂
 
 ## 資料來源與處理
 
@@ -110,11 +111,10 @@ _________________________________________________________________
 使用Matplotlib繪製了訓練和驗證損失曲線，可以明顯看到模型學習過程中的收斂情況
 ![溫度預測](模型訓練.png)
 ### 預測結果
-最後，我使用Plotly繪製了預測結果圖表：
-
+最後，我使用Plotly繪製了預測結果圖表，我利用：
+![溫度預測](預測結果.png)
 ```python
 fig = go.Figure()
-![溫度預測](預測結果.png)
 # 繪製實際溫度曲線
 for location in dfloc_test.index:
     fig.add_trace(go.Scatter(x=dfloc_test.loc[location, :].index, 
@@ -140,10 +140,9 @@ for i in range(0,pred_test.shape[0]):
 
 ## 檔案結構
 - GRUtest.ipynb: 主要模型訓練和分析程式碼
-- GRUtest2.ipynb, GRUtest3.ipynb: 模型的進階版本和實驗
 - test.R: 資料前處理 R 程式碼
-- all_year.csv: 主要資料集
-- 季節資料檔案: spring.csv, summer.csv, autumn.csv, winter.csv
+- all_year.csv: 主要資料集(未提供資料🤐)
+- 季節資料檔案: spring.csv, summer.csv, autumn.csv, winter.csv(未提供資料🤐)
 
 ## 結論與反思
 
